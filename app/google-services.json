@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "753340183628",
+    "project_id": "creamonstore",
+    "storage_bucket": "creamonstore.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:753340183628:android:dddfc60a32d07a5150b0e9",
+        "android_client_info": {
+          "package_name": "com.example.creamon_midterm_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOmNpjIZAiGIhy_7N2CgHNbZsGXozd2Tg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
