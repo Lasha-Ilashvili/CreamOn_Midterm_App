@@ -16,14 +16,14 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideFirebaseAuth(): FirebaseAuth {
-        return FirebaseAuth.getInstance()
+    fun provideHandleResponse(): HandleResponse {
+        return HandleResponse()
     }
 
     @Singleton
     @Provides
-    fun provideHandleResponse(): HandleResponse {
-        return HandleResponse()
+    fun provideFirebaseAuth(): FirebaseAuth {
+        return FirebaseAuth.getInstance()
     }
 
     @Singleton

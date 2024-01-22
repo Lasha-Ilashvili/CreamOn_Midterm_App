@@ -1,9 +1,10 @@
 package com.example.creamon_midterm_app.data.common
 
 import com.google.android.gms.tasks.Task
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuthException
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.tasks.await
 import okio.IOException
 import retrofit2.HttpException
 import retrofit2.Response
@@ -50,27 +51,23 @@ class HandleResponse() {
         }
     }
 
-    fun safeAuthCall(call: suspend () -> Task<AuthResult>) = flow {
-        emit(Resource.Loading(loading = true))
+    suspend fun <T : Any> safeAuthCall(call: suspend () -> Task<T>): Flow<Resource<T>> = flow {
+        emit(Resource.Loading(true))
 
         try {
             val task = call()
-            val user = task.result.user
-
-            if (task.isSuccessful && user != null) {
-                emit(Resource.Success(data = user))
+            val result = task.await()
+            if (task.isSuccessful) {
+                emit(Resource.Success(data = result))
             } else {
                 emit(Resource.Error(errorMessage = task.exception?.localizedMessage ?: ""))
             }
         } catch (e: FirebaseAuthException) {
             emit(Resource.Error(errorMessage = e.localizedMessage ?: ""))
         } catch (e: Throwable) {
-            emit(Resource.Error("An unexpected error occurred: ${e.localizedMessage}"))
+            emit(Resource.Error(errorMessage = "An unexpected error occurred: ${e.localizedMessage}"))
         } finally {
-            emit(Resource.Loading(loading = false))
+            emit(Resource.Loading(false))
         }
-
-
-//        emit(Resource.Loading(loading = false))
     }
 }
