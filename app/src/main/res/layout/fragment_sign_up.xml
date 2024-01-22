@@ -3,42 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="24dp"
     tools:context=".presentation.screen.sign_up.SignUpFragment">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top|center"
-            android:layout_marginTop="42dp"
-            android:text="sign up"
-            android:textSize="42sp"
-            android:textStyle="bold" />
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="42dp"
+        android:text="sign up"
+        android:textSize="42sp"
+        android:textStyle="bold" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etSignUpEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="48dp"
-            android:hint="hint_email"
-            android:inputType="textEmailAddress" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSignUpEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="48dp"
+        android:hint="hint_email"
+        android:inputType="textEmailAddress" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etSignUpPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:hint="hint_password"
-            android:inputType="textPassword" />
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etSignUpPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="hint_password"
+        android:inputType="textPassword" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnSignUp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginBottom="64dp"
-            android:text="sign ip"
-            android:textAllCaps="false"
-            android:textSize="24dp"
-            android:textStyle="bold" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="64dp"
+        android:text="sign up"
+        android:textAllCaps="false"
+        android:textSize="24dp"
+        android:textStyle="bold" />
 </FrameLayout>

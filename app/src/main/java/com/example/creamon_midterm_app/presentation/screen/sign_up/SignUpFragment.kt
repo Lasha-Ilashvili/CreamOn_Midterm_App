@@ -72,9 +72,9 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
         }
     }
 
-    private fun handleNavigationEvents(event: SignUpUiEvent) {
+    private fun handleNavigationEvents(event: SignUpViewModel.SignUpUiEvent) {
         when (event) {
-            is SignUpUiEvent.NavigateBackToLogIn -> {
+            is SignUpViewModel.SignUpUiEvent.NavigateBackToLogIn -> {
                 val resultBundle = Bundle().apply {
                     putString("email", event.email)
                     putString("password", event.password)

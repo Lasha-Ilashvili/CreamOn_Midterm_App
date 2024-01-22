@@ -41,7 +41,7 @@ class LogInViewModel @Inject constructor(
                         _logInState.update { currentState ->
                             currentState.copy(result = it.data)
                         }
-                        _uiEvent.emit(LogInUiEvent.NavigateToMainPage(email))
+                        _uiEvent.emit(LogInUiEvent.NavigateToMainPage)
                     }
 
                     is Resource.Error -> updateErrorMessage(message = it.errorMessage)
@@ -59,8 +59,8 @@ class LogInViewModel @Inject constructor(
             currentState.copy(errorMessage = message)
         }
     }
-}
 
-sealed interface LogInUiEvent {
-    data class NavigateToMainPage(val email: String) : LogInUiEvent
+    sealed interface LogInUiEvent {
+        data object NavigateToMainPage : LogInUiEvent
+    }
 }

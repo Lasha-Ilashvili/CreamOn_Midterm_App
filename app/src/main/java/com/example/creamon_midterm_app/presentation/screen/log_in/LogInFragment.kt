@@ -58,6 +58,13 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
                 }
             }
         }
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiEvent.collect {
+                    handleNavigationEvents(event = it)
+                }
+            }
+        }
     }
 
     private fun handleState(logInState: AuthenticationState) {
@@ -79,34 +86,14 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
             }
         }
     }
-}
-/*
 
-
-    viewLifecycleOwner.lifecycleScope.launch {
-        repeatOnLifecycle(Lifecycle.State.STARTED) {
-            viewModel.uiEvent.collect {
-                handleNavigationEvents(event = it)
+    private fun handleNavigationEvents(event: LogInViewModel.LogInUiEvent) {
+        when (event) {
+            is LogInViewModel.LogInUiEvent.NavigateToMainPage -> {
+                findNavController().navigate(
+                    LogInFragmentDirections.actionLogInFragmentToMainPageFragment()
+                )
             }
         }
     }
 }
-
-
-
-private fun handleNavigationEvents(event: SignUpUiEvent) {
-    when (event) {
-        is SignUpUiEvent.NavigateBackToLogIn -> {
-            val resultBundle = Bundle().apply {
-                putString("email", event.email)
-                putString("password", event.password)
-            }
-
-            parentFragmentManager.setFragmentResult("requestKey", resultBundle)
-
-            findNavController().navigate(
-                SignUpFragmentDirections.actionSignUpFragmentToLogInFragment()
-            )
-        }
-    }
-}*/

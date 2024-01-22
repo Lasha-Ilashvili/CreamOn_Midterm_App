@@ -58,8 +58,9 @@ class SignUpViewModel @Inject constructor(
             currentState.copy(errorMessage = message)
         }
     }
+
+    sealed interface SignUpUiEvent {
+        data class NavigateBackToLogIn(val email: String, val password: String) : SignUpUiEvent
+    }
 }
 
-sealed interface SignUpUiEvent {
-    data class NavigateBackToLogIn(val email: String, val password: String) : SignUpUiEvent
-}

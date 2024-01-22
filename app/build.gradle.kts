@@ -66,6 +66,9 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.moshi:moshi:1.15.0")
     implementation("com.squareup.moshi:moshi-kotlin:1.14.0")
+
+    // Splash
+    implementation("androidx.core:core-splashscreen:1.0.1")
 }
 
 kapt {

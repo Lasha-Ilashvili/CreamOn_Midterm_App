@@ -7,8 +7,6 @@ import dagger.hilt.components.SingletonComponent
 @Module
 @InstallIn(SingletonComponent::class)
 object UseCaseModule {
-
-
 //    @Singleton
 //    @Provides
 //    fun provideSignUpUseCase(): SignUpUseCase{
