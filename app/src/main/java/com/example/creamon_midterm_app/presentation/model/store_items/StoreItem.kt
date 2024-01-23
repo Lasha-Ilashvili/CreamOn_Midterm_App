@@ -1,4 +1,4 @@
-package com.example.creamon_midterm_app.domain.model.store_items
+package com.example.creamon_midterm_app.presentation.model.store_items
 
 data class StoreItem(
     val id: String? = null,

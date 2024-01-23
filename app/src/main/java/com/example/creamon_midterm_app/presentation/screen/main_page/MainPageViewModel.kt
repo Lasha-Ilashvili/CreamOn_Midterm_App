@@ -3,9 +3,10 @@ package com.example.creamon_midterm_app.presentation.screen.main_page
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.creamon_midterm_app.data.common.Resource
-import com.example.creamon_midterm_app.domain.model.store_items.StoreItem
-import com.example.creamon_midterm_app.domain.usecase.store_items.StoreItemsUseCase
+import com.example.creamon_midterm_app.domain.usecase.store_items.GetStoreItemsUseCase
 import com.example.creamon_midterm_app.presentation.event.store_items.StoreItemsEvent
+import com.example.creamon_midterm_app.presentation.model.store_items.StoreItem
+import com.example.creamon_midterm_app.presentation.screen.mapper.store_items.toPresentation
 import com.example.creamon_midterm_app.presentation.state.store_items.StoreItemsState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -18,7 +19,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainPageViewModel @Inject constructor(
-    private val storeItemsUseCase: StoreItemsUseCase
+    private val storeItemsUseCase: GetStoreItemsUseCase
 ) : ViewModel() {
 
     private val _storeItems = MutableStateFlow(StoreItemsState())
@@ -43,7 +44,7 @@ class MainPageViewModel @Inject constructor(
                 when (it) {
                     is Resource.Success -> {
                         _storeItems.update { currentState ->
-                            currentState.copy(result = it.data)
+                            currentState.copy(data = it.data.toPresentation())
                         }
 
 //                        _uiEvent.emit(

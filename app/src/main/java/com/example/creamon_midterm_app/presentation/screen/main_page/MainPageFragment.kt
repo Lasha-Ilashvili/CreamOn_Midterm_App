@@ -36,8 +36,8 @@ class MainPageFragment : BaseFragment<FragmentMainPageBinding>(FragmentMainPageB
                 // Show loading indicator
             }
 
-            storeItemsState.result != null -> {
-                d("CheckList", storeItemsState.result.toString())
+            storeItemsState.data != null -> {
+                d("CheckList", storeItemsState.data.storeItems.toString())
                 viewModel.onEvent(StoreItemsEvent.ResetErrorMessage)
             }
 

@@ -12,13 +12,4 @@ data class StoreItemsDto(
     val sorbets: List<StoreItemDto>,
     @Json(name = "yogurts")
     val yogurts: List<StoreItemDto>
-) {
-    val storeItems = listOf(
-        listOf(StoreItemDto(title = "Ice Creams")),
-        iceCreams,
-        listOf(StoreItemDto(title = "Sorbets")),
-        sorbets,
-        listOf(StoreItemDto(title = "Yogurt Base")),
-        yogurts
-    )
-}
+)

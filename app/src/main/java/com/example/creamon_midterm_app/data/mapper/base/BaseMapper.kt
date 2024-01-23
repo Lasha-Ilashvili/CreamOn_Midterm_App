@@ -5,8 +5,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 suspend fun <Dto : Any, Domain : Any> Flow<Resource<Dto>>.asResource(
-    onSuccess: (Dto) -> List<List<Domain>>,
-): Flow<Resource<List<List<Domain>>>> {
+    onSuccess: suspend (Dto) -> Domain,
+): Flow<Resource<Domain>> {
     return this.map {
         when (it) {
             is Resource.Success -> Resource.Success(data = onSuccess.invoke(it.data))
