@@ -1,6 +1,5 @@
 package com.example.creamon_midterm_app.presentation.screen.item_page
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -28,6 +27,8 @@ class ItemPageFragment : BaseFragment<FragmentItemPageBinding>(FragmentItemPageB
         binding.ivBackArrow.setOnClickListener {
             findNavController().popBackStack()
         }
+
+
 
         viewModel.onEvent(StoreItemEvent.SetItem(args.id))
     }
