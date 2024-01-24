@@ -14,7 +14,7 @@ class WelcomePageFragment :
                 WelcomePageFragmentDirections.actionWelcomePageFragmentToSignUpFragment()
             )
         }
-        binding.btnLogin.setOnClickListener {
+        binding.btnLogIn.setOnClickListener {
             findNavController().navigate(
                 WelcomePageFragmentDirections.actionWelcomePageFragmentToLogInFragment()
             )

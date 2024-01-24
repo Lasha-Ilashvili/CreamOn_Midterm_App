@@ -10,9 +10,9 @@ import retrofit2.HttpException
 import retrofit2.Response
 
 
-class HandleResponse() {
+class HandleResponse {
 
-    fun <T : Any> safeApiCall(call: suspend () -> Response<T>) = flow {
+    fun <T : Any> safeApiCall(call: suspend () -> Response<T>): Flow<Resource<T>> = flow {
         emit(Resource.Loading(loading = true))
 
         try {
@@ -51,12 +51,13 @@ class HandleResponse() {
         }
     }
 
-    suspend fun <T : Any> safeAuthCall(call: suspend () -> Task<T>): Flow<Resource<T>> = flow {
+    fun <T : Any> safeAuthCall(call: suspend () -> Task<T>): Flow<Resource<T>> = flow {
         emit(Resource.Loading(true))
 
         try {
             val task = call()
             val result = task.await()
+
             if (task.isSuccessful) {
                 emit(Resource.Success(data = result))
             } else {

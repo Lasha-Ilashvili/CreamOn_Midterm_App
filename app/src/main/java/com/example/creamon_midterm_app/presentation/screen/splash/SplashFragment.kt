@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.creamon_midterm_app.databinding.FragmentSplashBinding
 import com.example.creamon_midterm_app.presentation.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -19,6 +20,7 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiEvent.collect {
+                    delay(1000)
                     handleNavigationEvents(event = it)
                 }
             }

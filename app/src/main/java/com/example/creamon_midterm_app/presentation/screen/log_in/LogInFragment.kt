@@ -23,10 +23,10 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
     override fun setUp() {
         setFragmentResultListener("requestKey") { _, bundle ->
             val email = bundle.getString("email")
-            binding.etLoginEmail.setText(email)
+            binding.etEmail.setText(email)
 
             val password = bundle.getString("password")
-            binding.etLoginPassword.setText(password)
+            binding.etPassword.setText(password)
         }
     }
 
@@ -34,7 +34,7 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
         binding.btnLogin.setOnClickListener {
             logIn()
         }
-        binding.btnLoginSignUp.setOnClickListener {
+        binding.tvSignUp.setOnClickListener {
             findNavController().navigate(
                 LogInFragmentDirections.actionLogInFragmentToSignUpFragment()
             )
@@ -44,8 +44,8 @@ class LogInFragment : BaseFragment<FragmentLogInBinding>(FragmentLogInBinding::i
     private fun logIn() {
         viewModel.onEvent(
             LogInEvent.LogIn(
-                binding.etLoginEmail.text.toString(),
-                binding.etLoginPassword.text.toString(),
+                binding.etEmail.text.toString(),
+                binding.etPassword.text.toString(),
             )
         )
     }

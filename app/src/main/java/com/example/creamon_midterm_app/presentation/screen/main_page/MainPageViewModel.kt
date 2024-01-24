@@ -5,13 +5,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.creamon_midterm_app.data.common.Resource
 import com.example.creamon_midterm_app.domain.usecase.store_items.GetStoreItemsUseCase
 import com.example.creamon_midterm_app.presentation.event.store_items.StoreItemsEvent
-import com.example.creamon_midterm_app.presentation.model.store_items.StoreItem
-import com.example.creamon_midterm_app.presentation.screen.mapper.store_items.toPresentation
 import com.example.creamon_midterm_app.presentation.state.store_items.StoreItemsState
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asSharedFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -19,6 +18,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainPageViewModel @Inject constructor(
+    private val firebaseAuth: FirebaseAuth,
     private val storeItemsUseCase: GetStoreItemsUseCase
 ) : ViewModel() {
 
@@ -26,7 +26,7 @@ class MainPageViewModel @Inject constructor(
     val storeItems get() = _storeItems.asStateFlow()
 
     private val _uiEvent = MutableSharedFlow<MainPageUiEvent>()
-    val uiEvent get() = _uiEvent.asSharedFlow()
+    val uiEvent: SharedFlow<MainPageUiEvent> get() = _uiEvent
 
     init {
         setInitialList()
@@ -34,6 +34,7 @@ class MainPageViewModel @Inject constructor(
 
     fun onEvent(event: StoreItemsEvent) {
         when (event) {
+            is StoreItemsEvent.LogOut -> logOut()
             is StoreItemsEvent.ResetErrorMessage -> updateErrorMessage()
         }
     }
@@ -44,14 +45,8 @@ class MainPageViewModel @Inject constructor(
                 when (it) {
                     is Resource.Success -> {
                         _storeItems.update { currentState ->
-                            currentState.copy(data = it.data.toPresentation())
+                            currentState.copy(data = it.data)
                         }
-
-//                        _uiEvent.emit(
-//                            SignUpViewModel.SignUpUiEvent.NavigateBackToLogIn(
-//
-//                            )
-//                        )
                     }
 
                     is Resource.Error -> updateErrorMessage(message = it.errorMessage)
@@ -64,6 +59,13 @@ class MainPageViewModel @Inject constructor(
         }
     }
 
+    private fun logOut() {
+        viewModelScope.launch {
+            firebaseAuth.signOut()
+            _uiEvent.emit(MainPageUiEvent.NavigateBackToWelcomePage)
+        }
+    }
+
     private fun updateErrorMessage(message: String? = null) {
         _storeItems.update { currentState ->
             currentState.copy(errorMessage = message)
@@ -71,6 +73,6 @@ class MainPageViewModel @Inject constructor(
     }
 
     sealed interface MainPageUiEvent {
-        data class NavigateBackToLogIn(val item: StoreItem) : MainPageUiEvent
+        data object NavigateBackToWelcomePage : MainPageUiEvent
     }
 }

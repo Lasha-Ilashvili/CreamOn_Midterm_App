@@ -1,5 +1,31 @@
 <resources>
-    <string name="app_name">CreamOn_Midterm_App</string>
+    <string name="app_name">Cream On</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="dollar_sign">$</string>
+    <string name="hello">Hello</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="please_enter_your_details_to_log_in">Please enter your details to log in</string>
+    <string name="you_example_com">you@example.com</string>
+    <string name="at_least_6_characters">at least 6 characters</string>
+    <string name="signup"><i><u>Sign Up</u></i></string>
+    <string name="login"><i><u>Log In</u></i></string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="please_enter_your_details_to_sign_up">Please enter your details to sign up</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="current_amount">Current amount $</string>
+    <string name="choose_your_toppings">Choose your toppings!</string>
+    <string name="rainbow_sprinkles">Rainbow Sprinkles</string>
+    <string name="_2_00">+$2.00</string>
+    <string name="_4_00">+$4.00</string>
+    <string name="chocolate_sprinkles">Chocolate Sprinkles</string>
+    <string name="_5_00">+$5.00</string>
+    <string name="crushed_almonds">Crushed Almonds</string>
+    <string name="_3_00">+$3.00</string>
+    <string name="coconut">Coconut</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="log_out"><i><u>Log Out</u></i></string>
 </resources>

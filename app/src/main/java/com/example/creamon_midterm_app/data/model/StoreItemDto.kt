@@ -6,7 +6,7 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class StoreItemDto(
     @Json(name = "id")
-    val id: String? = null,
+    val id: Int? = null,
     @Json(name = "image")
     val image: String? = null,
     @Json(name = "description")

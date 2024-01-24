@@ -24,13 +24,18 @@ class SignUpFragment : BaseFragment<FragmentSignUpBinding>(FragmentSignUpBinding
         binding.btnSignUp.setOnClickListener {
             signUp()
         }
+        binding.tvLogIn.setOnClickListener {
+            findNavController().navigate(
+                SignUpFragmentDirections.actionSignUpFragmentToLogInFragment()
+            )
+        }
     }
 
     private fun signUp() {
         viewModel.onEvent(
             SignUpEvent.SignUp(
-                binding.etSignUpEmail.text.toString(),
-                binding.etSignUpPassword.text.toString(),
+                binding.etEmail.text.toString(),
+                binding.etPassword.text.toString(),
             )
         )
     }
