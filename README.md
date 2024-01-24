@@ -1,6 +1,8 @@
 Ice Cream, Yogurt, and Sorbet Store App
 Welcome to our Ice Cream, Yogurt, and Sorbet Store App! This application is designed to provide a seamless shopping experience for users interested in these delicious treats. With our app, you can browse through various categories of ice creams, yogurts, and sorbets, and place orders conveniently.
 
+![image](https://github.com/Lasha-Ilashvili/CreamOn_Midterm_App/assets/148916134/58a8fe74-feb9-4c12-8da8-6b52f296f757)
+
 Features:
 
 *Categorized Products: Our app organizes products into distinct categories, making it easy for users to find exactly what they're looking for.
