@@ -51,7 +51,7 @@ class HandleResponse {
         }
     }
 
-    fun <T : Any> safeAuthCall(call: suspend () -> Task<T>): Flow<Resource<T>> = flow {
+    fun <T : Any> safeAuthCall(call: () -> Task<T>): Flow<Resource<T>> = flow {
         emit(Resource.Loading(true))
 
         try {

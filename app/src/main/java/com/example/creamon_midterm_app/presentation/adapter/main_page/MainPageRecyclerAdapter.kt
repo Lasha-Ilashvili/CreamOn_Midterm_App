@@ -1,4 +1,4 @@
-package com.example.creamon_midterm_app.presentation.screen.main_page
+package com.example.creamon_midterm_app.presentation.adapter.main_page
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

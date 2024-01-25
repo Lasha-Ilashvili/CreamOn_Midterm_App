@@ -2,7 +2,6 @@ package com.example.creamon_midterm_app.di
 
 import com.example.creamon_midterm_app.data.common.HandleResponse
 import com.example.creamon_midterm_app.data.service.authentication.AuthenticationService
-import com.example.creamon_midterm_app.data.service.authentication.AuthenticationServiceImpl
 import com.example.creamon_midterm_app.data.service.store_items.StoreItemsService
 import com.google.firebase.auth.FirebaseAuth
 import com.squareup.moshi.Moshi
@@ -36,7 +35,7 @@ object AppModule {
     @Singleton
     @Provides
     fun provideAuthenticationService(firebaseAuth: FirebaseAuth): AuthenticationService {
-        return AuthenticationServiceImpl(firebaseAuth)
+        return AuthenticationService(firebaseAuth)
     }
 
     @Singleton

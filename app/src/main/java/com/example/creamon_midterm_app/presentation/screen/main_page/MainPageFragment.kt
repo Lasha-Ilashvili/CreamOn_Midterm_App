@@ -7,6 +7,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import com.example.creamon_midterm_app.databinding.FragmentMainPageBinding
+import com.example.creamon_midterm_app.presentation.adapter.main_page.MainPageRecyclerAdapter
 import com.example.creamon_midterm_app.presentation.base.BaseFragment
 import com.example.creamon_midterm_app.presentation.event.store_items.StoreItemsEvent
 import com.example.creamon_midterm_app.presentation.extension.showToast

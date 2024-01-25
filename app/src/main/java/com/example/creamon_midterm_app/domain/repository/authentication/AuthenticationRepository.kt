@@ -8,5 +8,4 @@ import kotlinx.coroutines.flow.Flow
 interface AuthenticationRepository {
     suspend fun logIn(email: String, password: String): Flow<Resource<AuthResult>>
     suspend fun signUp(email: String, password: String): Flow<Resource<AuthResult>>
-////    suspend fun logOut(): Flow<Resource<User>>
 }

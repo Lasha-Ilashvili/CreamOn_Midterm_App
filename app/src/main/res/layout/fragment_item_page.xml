@@ -23,7 +23,6 @@
         android:layout_marginTop="12dp"
         android:background="@drawable/store_item_bg"
         android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/btnBuyNow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivBackArrow">
@@ -81,9 +80,143 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvToppings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="@string/choose_your_toppings"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelect1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvToppings"
+        app:srcCompat="@drawable/ic_unselected" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rainbow_sprinkles"
+        android:textColor="@color/soft_yellow"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect1"
+        app:layout_constraintStart_toStartOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/_2_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect1"
+        app:layout_constraintEnd_toEndOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect1" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelect2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSelect1"
+        app:srcCompat="@drawable/ic_unselected" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chocolate_sprinkles"
+        android:textColor="@color/soft_yellow"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect2"
+        app:layout_constraintStart_toStartOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/_4_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect2"
+        app:layout_constraintEnd_toEndOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect2" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelect3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSelect2"
+        app:srcCompat="@drawable/ic_unselected" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/crushed_almonds"
+        android:textColor="@color/soft_yellow"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect3"
+        app:layout_constraintStart_toStartOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect3" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/_5_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect3"
+        app:layout_constraintEnd_toEndOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect3" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivSelect4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivSelect3"
+        app:srcCompat="@drawable/ic_unselected" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/coconut"
+        android:textColor="@color/soft_yellow"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect4"
+        app:layout_constraintStart_toStartOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect4" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:text="@string/_3_00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/ivSelect4"
+        app:layout_constraintEnd_toEndOf="@id/tvToppings"
+        app:layout_constraintTop_toTopOf="@+id/ivSelect4" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnBuyNow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -95,9 +228,8 @@
         android:textColor="@color/white"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll" />
+        app:layout_constraintTop_toBottomOf="@+id/ivSelect4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

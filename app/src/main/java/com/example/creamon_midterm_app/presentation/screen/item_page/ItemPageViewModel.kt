@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.creamon_midterm_app.data.common.Resource
 import com.example.creamon_midterm_app.domain.usecase.store_item.GetStoreItemUseCase
+import com.example.creamon_midterm_app.domain.usecase.store_items.GetStoreItemsUseCase
 import com.example.creamon_midterm_app.presentation.event.store_item.StoreItemEvent
 import com.example.creamon_midterm_app.presentation.state.store_item.StoreItemState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,6 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ItemPageViewModel @Inject constructor(
+    private val storeItemsUseCase: GetStoreItemsUseCase,
     private val storeItemUseCase: GetStoreItemUseCase
 ) : ViewModel() {
 
@@ -31,20 +33,12 @@ class ItemPageViewModel @Inject constructor(
 
     private fun setItem(id: Int) {
         viewModelScope.launch {
-            storeItemUseCase(id).collect {
+            storeItemsUseCase().collect {
                 when (it) {
                     is Resource.Success -> {
                         _storeItem.update { currentState ->
-                            val itemList = it.data.categories.flatMap { category ->
-                                category.items
-                            }
-
-                            val item = itemList.find { storeItem ->
-                                storeItem.id == id
-                            }
-
                             currentState.copy(
-                                data = item
+                                data = storeItemUseCase(id, it.data.categories)
                             )
                         }
                     }
