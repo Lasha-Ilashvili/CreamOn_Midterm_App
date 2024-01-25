@@ -23,6 +23,7 @@ Features:
 
 *Details Page: View detailed information about each product.
 
+
 Technologies Used:
 
 *Firebase: Used for secure user authentication.
